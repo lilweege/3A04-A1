@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# If building on windows with MinGW/Cygwin, remove -fsanitize to avoid link errors
-CFLAGS="-std=c++20 -march=native -Wall -Wextra -Wshadow -Wconversion -Wpedantic -Werror -fsanitize=undefined,address"
+CFLAGS="-std=c++20 -Wall -Wextra -Wshadow -Wconversion -Wpedantic -Werror -O2"
 
 set -xe
 
