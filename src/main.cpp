@@ -83,14 +83,14 @@ public:
     void SetNumber(InputType);
 };
 
-template<typename InputType>
+template<std::integral InputType>
 InputType NumberPublisher<InputType>::GetNumber() const
 {
     return mNumber;
 }
 
 
-template<typename InputType>
+template<std::integral InputType>
 void NumberPublisher<InputType>::SetNumber(InputType number)
 {
     // NOTE: Do NOT call this function from an observer.
