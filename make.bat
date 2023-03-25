@@ -10,5 +10,5 @@ if %ERRORLEVEL% NEQ 0 (echo ERROR: "cl" not found - please run this from the MSV
 
 set CFLAGS=/nologo /TP /EHsc /std:c++20 /W4 /wd4996 /wd4200 /O2
 
-call cl %CFLAGS% /FeA1 src\*.cpp
+call cl %CFLAGS%  src\*.cpp /FeA1
 
