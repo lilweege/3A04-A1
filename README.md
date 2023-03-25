@@ -34,7 +34,7 @@ Notable files inside the `src` directory include:
     └── PrimeNumberSubscriber.hpp        │
 ```
 
-As shown in the class diagram, the `Subject` class has a list of `Observers`. These observers are attached to the subject that is passed in the constructor of the observer, and detached from the subject in the destructor of the observer. These methods are public, so if the observation behaviour should not be tied to the lifetime of the object, then this can be changed.
+As shown in the class diagram, the `Subject` class has a list of `Observer`s. These observers are attached to the subject that is passed in the constructor of the observer, and detached from the subject in the destructor of the observer. These methods are public, so if the observation behaviour should not be tied to the lifetime of the object, then this can be changed.
 
 The concrete subject and observer classes are templated on the input and output types. The input type is restricted to be an ingeral type (such as `short`, `int`, `long`, ...). The output type is not restricted, (the `EvenNumberSubscriber` and `PrimeNumberSubscriber` classes both return `bool`, but they could return anything).
 
