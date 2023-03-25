@@ -174,53 +174,19 @@ class PrimeNumberSubscriber : public NumberSubscriber<InputType, bool>
 template <typename InputType>
 void PrimeNumberSubscriber<InputType>::RecomputeResult(InputType number)
 {
-    auto binpow = [](__uint128_t base, __uint128_t e, __uint128_t mod) {
-        __uint128_t result = 1;
-        base %= mod;
-        while (e) {
-            if (e & 1)
-                result = result * base % mod;
-            base = base * base % mod;
-            e >>= 1;
+    if (number < 2) {
+        this->mResult = false;
+        return;
+    }
+
+    uint64_t x = number;
+    for (uint64_t d = 2; d * d <= x; d++) {
+        if (x % d == 0) {
+            this->mResult = false;
+            return;
         }
-        return result;
-    };
-
-    auto composite = [binpow](uint64_t n, uint64_t a, uint64_t d, int s) {
-        __uint128_t x = binpow(a, d, n);
-        if (x == 1 || x == n - 1)
-            return false;
-        for (int r = 1; r < s; r++) {
-            x = (__uint128_t) x * x % n;
-            if (x == n - 1)
-                return false;
-        }
-        return true;
-    };
-
-    auto MillerRabin = [composite](InputType _n) {
-        if (_n < 2)
-            return false;
-
-        uint64_t n = _n;
-        int r = 0;
-        uint64_t d = n - 1;
-        while ((d & 1) == 0) {
-            d >>= 1;
-            r++;
-        }
-
-        for (uint32_t a : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
-            if (n == a)
-                return true;
-            if (composite(n, a, d, r))
-                return false;
-        }
-        return true;
-    };
-
-
-    this->mResult = MillerRabin(number);
+    }
+    this->mResult = true;
 }
 
 
@@ -239,7 +205,7 @@ int main()
             << '\n';
     };
 
-    for (int64_t x = (1L<<62)-10000L; x < (1L<<62)+99L; ++x) {
+    for (int64_t x = 0; x <= 100; ++x) {
         CheckNumber(x);
     }
 }
