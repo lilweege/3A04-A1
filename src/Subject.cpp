@@ -15,4 +15,3 @@ void Subject::Notify()
     for (Observer* observer : mObservers)
         observer->Update(this);
 }
-

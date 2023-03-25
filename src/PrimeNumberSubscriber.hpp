@@ -10,11 +10,11 @@ class PrimeNumberSubscriber : public NumberSubscriber<InputType, bool>
 public:
     using NumberSubscriber<InputType, bool>::NumberSubscriber;
 private:
-    virtual void RecomputeResult(InputType);
+    virtual void ComputeResult(InputType);
 };
 
 template <typename InputType>
-void PrimeNumberSubscriber<InputType>::RecomputeResult(InputType number)
+void PrimeNumberSubscriber<InputType>::ComputeResult(InputType number)
 {
     if (number < 2) {
         this->mResult = false;
@@ -30,4 +30,3 @@ void PrimeNumberSubscriber<InputType>::RecomputeResult(InputType number)
     }
     this->mResult = true;
 }
-

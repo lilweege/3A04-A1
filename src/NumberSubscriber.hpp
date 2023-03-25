@@ -14,7 +14,7 @@ public:
     virtual ~NumberSubscriber() override;
     virtual void Update(Subject*) override;
 private:
-    virtual void RecomputeResult(InputType) = 0;
+    virtual void ComputeResult(InputType) = 0;
 
 public:
     [[nodiscard]] OutputType GetResult() const;
@@ -38,7 +38,7 @@ template <typename InputType, typename OutputType>
 void NumberSubscriber<InputType, OutputType>::Update(Subject* subject)
 {
     if (subject == mSubject)
-        RecomputeResult(mSubject->GetNumber());
+        ComputeResult(mSubject->GetNumber());
 }
 
 template <typename InputType, typename OutputType>

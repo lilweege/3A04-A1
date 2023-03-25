@@ -8,11 +8,11 @@ class EvenNumberSubscriber : public NumberSubscriber<InputType, bool>
 public:
     using NumberSubscriber<InputType, bool>::NumberSubscriber;
 private:
-    virtual void RecomputeResult(InputType);
+    virtual void ComputeResult(InputType);
 };
 
 template <typename InputType>
-void EvenNumberSubscriber<InputType>::RecomputeResult(InputType number)
+void EvenNumberSubscriber<InputType>::ComputeResult(InputType number)
 {
     this->mResult = !(number & 1);
 }
