@@ -49,8 +49,7 @@ The following diagrams come from the famous book "Design Patterns: Elements of R
 
 #### (c\) User guide
 
-##### Building
-Pre-built binaries `A1.exe` (for Windows users) and `A1.out` (for Linux users) are included. Open the root directory of this repository in a terminal, then run the executable for your platform. If none of these options work for you, the build scripts can easily be modified (they are only a few lines long) to support other compilers (such as clang) and flags.
+`src/main.cpp` has a fully commented example showing how to use the system. Pre-built binaries of this file are included: `A1.exe` (for Windows users) and `A1.out` (for Linux users). To run them, open the root directory of this repository in a terminal, then run the executable for your platform. If none of these options work for you, the build scripts can easily be modified (they are only a few lines long) to support other compilers (such as clang) and flags.
 
 ##### Windows (msvc)
 

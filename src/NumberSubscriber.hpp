@@ -46,4 +46,3 @@ OutputType NumberSubscriber<InputType, OutputType>::GetResult() const
 {
     return mResult;
 }
-

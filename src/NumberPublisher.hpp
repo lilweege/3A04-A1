@@ -20,9 +20,8 @@ InputType NumberPublisher<InputType>::GetNumber() const
 template<std::integral InputType>
 void NumberPublisher<InputType>::SetNumber(InputType number)
 {
-    // NOTE: Do NOT call this function from an observer.
+    // NOTE: Do NOT call this function from an observer's Update function.
     // Doing so would result in infinite mutual recursion (this is bad).
     mNumber = number;
     Notify();
 }
-

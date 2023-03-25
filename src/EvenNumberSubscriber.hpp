@@ -16,4 +16,3 @@ void EvenNumberSubscriber<InputType>::ComputeResult(InputType number)
 {
     this->mResult = !(number & 1);
 }
-
